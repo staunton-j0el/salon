@@ -1,0 +1,14 @@
+---
+import Scissors from './Scissors.astro';
+
+/** Decorative perforated divider. A scissors travels the dashes as it scrolls through. */
+interface Props {
+  label?: string;
+}
+const { label = 'cut here' } = Astro.props;
+---
+<div class="cut-rule" data-motion="view" aria-hidden="true">
+  <span class="cut-rule-label">{label}</span>
+  <span class="cut-rule-line"></span>
+  <Scissors class="cut-rule-scissors" />
+</div>

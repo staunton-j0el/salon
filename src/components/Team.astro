@@ -1,30 +1,47 @@
 ---
 import { site } from '../site.config';
+import Snip from './Snip.astro';
 ---
-<section id="team" class="section bg-plum-800 text-porcelain-100" aria-labelledby="team-title">
+<section id="team" class="band" aria-labelledby="team-title">
   <div class="container-x">
-    <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+    <header class="team-head">
+      <p class="sec-no" aria-hidden="true">03</p>
       <div>
-        <p class="eyebrow text-blush-300">Team</p>
-        <h2 id="team-title" class="section-title text-porcelain-50">Meet the stylists</h2>
+        <p class="ink-label">Team</p>
+        <h2 id="team-title" class="display">Meet the <Snip word="stylists" italic /></h2>
+        <p class="team-flag">Fictional people — illustrated, not photographed</p>
       </div>
-      <p class="w-fit rounded-full border border-plum-500 px-4 py-2 text-sm font-semibold text-porcelain-100">
-        Fictional people — illustrated, not photographed
-      </p>
-    </div>
-    <ul class="mt-12 grid gap-6 md:grid-cols-3" role="list">
-      {site.team.map((m) => (
-        <li class="rounded-3xl bg-plum-700/60 p-7 ring-1 ring-plum-500/50">
-          <svg width="88" height="88" viewBox="0 0 88 88" role="img" aria-label={`Illustrated avatar with the initials ${m.initials}`}>
-            <circle cx="44" cy="44" r="44" fill={m.accent} />
-            <path d="M14 76a34 34 0 0 1 60 0" fill={m.color} opacity="0.25" />
-            <text x="44" y="44" dy="0.35em" text-anchor="middle" font-family="Georgia, serif" font-size="30" font-weight="700" fill={m.color}>{m.initials}</text>
-          </svg>
-          <h3 class="mt-5 text-2xl font-semibold text-porcelain-50">{m.name}</h3>
-          <p class="mt-1 text-sm font-semibold tracking-wide text-blush-200 uppercase">{m.role}</p>
-          <p class="mt-4 leading-relaxed text-porcelain-200">{m.bio}</p>
-        </li>
-      ))}
+    </header>
+    <ul class="roster" role="list">
+      {
+        site.team.map((member, index) => (
+          <li class={`person person-${index}`}>
+            <svg
+              class="avatar"
+              width={index === 0 ? 104 : 84}
+              height={index === 0 ? 104 : 84}
+              viewBox="0 0 88 88"
+              role="img"
+              aria-label={`Illustrated avatar with the initials ${member.initials}`}
+            >
+              <circle cx="44" cy="44" r="44" fill={member.accent}></circle>
+              <path d="M14 76a34 34 0 0 1 60 0" fill={member.color} opacity="0.25"></path>
+              <text
+                x="44"
+                y="44"
+                dy="0.35em"
+                text-anchor="middle"
+                font-family="Georgia, serif"
+                font-size="30"
+                font-weight="700"
+                fill={member.color}>{member.initials}</text>
+            </svg>
+            <h3>{member.name}</h3>
+            <p class="role">{member.role}</p>
+            <p class="bio">{member.bio}</p>
+          </li>
+        ))
+      }
     </ul>
   </div>
 </section>

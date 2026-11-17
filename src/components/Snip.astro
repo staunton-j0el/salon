@@ -1,0 +1,30 @@
+---
+/**
+ * A word that splits on scroll: two visual halves (hidden from assistive tech)
+ * and one real text node for screen readers.
+ */
+interface Props {
+  word: string;
+  /** hero scrubs with page scroll; section scrubs as the heading enters. */
+  variant?: 'hero' | 'section';
+  italic?: boolean;
+}
+const { word, variant = 'section', italic = false } = Astro.props;
+---
+<span
+  class:list={['snip', variant === 'hero' ? 'snip--hero' : 'snip--section', italic && 'is-italic']}
+  data-motion={variant === 'hero' ? 'scroll' : 'view'}
+  data-endpx={variant === 'hero' ? '420' : undefined}
+>
+  <span class="snip-visual" aria-hidden="true">
+    <span class="snip-half snip-top">{word}</span>
+    <span class="snip-half snip-bot">{word}</span>
+    <span class="snip-dash"></span>
+    <svg class="snip-scissors" viewBox="0 0 72 40" fill="none">
+      <circle cx="15" cy="11" r="8" stroke="currentColor" stroke-width="3"></circle>
+      <circle cx="15" cy="29" r="8" stroke="currentColor" stroke-width="3"></circle>
+      <path d="M22 14.5 66 23.5M22 25.5 66 16.5" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path>
+    </svg>
+  </span>
+  <span class="snip-real">{word}</span>
+</span>

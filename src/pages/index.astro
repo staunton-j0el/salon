@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Hero from '../components/Hero.astro';
+import CutRule from '../components/CutRule.astro';
 import Services from '../components/Services.astro';
 import Gallery from '../components/Gallery.astro';
 import Team from '../components/Team.astro';
@@ -30,10 +31,13 @@ const jsonLd = {
 ---
 <Base jsonLd={jsonLd}>
   <Hero />
+  <CutRule />
   <Services />
   <Gallery />
+  <CutRule />
   <Team />
   <Reviews />
+  <CutRule />
   <Hours />
   <Book />
   <Faq />

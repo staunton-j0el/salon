@@ -1,72 +1,59 @@
 ---
-import { site } from '../site.config';
+import Snip from './Snip.astro';
 ---
-<section class="relative overflow-hidden" aria-labelledby="hero-title">
-  <div aria-hidden="true" class="pointer-events-none absolute -top-40 -right-40 h-[32rem] w-[32rem] rounded-full bg-blush-200/50 blur-3xl"></div>
-  <div class="container-x relative grid items-center gap-12 py-14 sm:py-20 lg:grid-cols-[1.05fr_1fr] lg:py-24">
-    <div>
-      <p class="eyebrow">Hair studio · South-East Qld (demo)</p>
-      <h1 id="hero-title" class="mt-4 text-[2.75rem] leading-[1.05] font-semibold tracking-tight sm:text-6xl lg:text-7xl">
-        Hair that feels <em class="font-normal text-blush-600 italic">like you.</em>
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container-x hero-copy">
+    <p class="hero-kicker">Hair studio · South-East Qld (demo)</p>
+    <div class="hero-text">
+      <h1 id="hero-title" class="hero-title">
+        <span class="hero-line hero-line-hair">Hair</span>
+        <span class="hero-line hero-line-that">that <Snip word="feels" variant="hero" italic /></span>
+        <span class="hero-line hero-line-you">
+          <em class="hero-em">like you.<span class="burn" aria-hidden="true"><span class="burn-line"></span><span class="spark-trail"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i></span><span class="burn-rig"><span class="flames"><i></i><i></i><i></i><i></i></span><svg class="dryer" viewBox="0 0 72 42" width="48" height="28" fill="none"><rect x="6" y="12" width="28" height="18" rx="8" fill="#fdf9f8" stroke="currentColor" stroke-width="2"></rect><path d="M34 15h14c2.2 0 4.2 1.6 6.2 4.4 1.6 2.2 1.6 5.6 0 7.8-2 2.8-4 4.8-6.2 4.8H34" fill="#f4dfe1" stroke="currentColor" stroke-width="2"></path><path d="M12 17.5h14M12 21.5h14M12 25.5h10" stroke="currentColor" stroke-width="1.35" stroke-linecap="round"></path><path d="M16 30c-0.6 6.2 2.2 9.6 8 10.6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"></path></svg></span></span></em>
+        </span>
       </h1>
-      <p class="mt-6 max-w-xl text-lg leading-relaxed text-muted sm:text-xl">
+      <p class="hero-lede">
         Thoughtful cuts, lived-in colour and treatments that survive Queensland humidity — in a calm studio where nobody rushes you.
       </p>
-      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+      <div class="hero-actions">
         <a href="#book" class="btn btn-primary">Book an appointment</a>
         <a href="#services" class="btn btn-ghost">View services</a>
       </div>
-      <ul class="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-plum-700">
-        <li class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-blush-500" aria-hidden="true"></span>Late night Thursdays</li>
-        <li class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-blush-500" aria-hidden="true"></span>Book online 24/7</li>
-        <li class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-blush-500" aria-hidden="true"></span>Free street parking</li>
+      <ul class="hero-facts">
+        <li>Late night Thursdays</li>
+        <li>Book online 24/7</li>
+        <li>Free street parking</li>
       </ul>
+      <p class="est-badge">Est. 2026 · totally fictional</p>
     </div>
+  </div>
 
-    <div class="relative mx-auto w-full max-w-md lg:max-w-none">
-      <svg viewBox="0 0 520 560" width="520" height="560" class="h-auto w-full" role="img" aria-labelledby="hero-art-title">
-        <title id="hero-art-title">Abstract illustration of flowing hair in plum, blush and rose tones</title>
-        <defs>
-          <linearGradient id="h-bg" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#4a2340" />
-            <stop offset="1" stop-color="#2a1426" />
-          </linearGradient>
-          <linearGradient id="h-hair" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#8c3550" />
-            <stop offset="0.55" stop-color="#c76a80" />
-            <stop offset="1" stop-color="#e8b4bc" />
-          </linearGradient>
-          <linearGradient id="h-hair2" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#e8b4bc" />
-            <stop offset="1" stop-color="#f3e7e6" />
-          </linearGradient>
-        </defs>
-        <rect x="30" y="20" width="460" height="520" rx="230" fill="url(#h-bg)" />
-        <circle cx="400" cy="110" r="52" fill="#e8b4bc" opacity="0.9" />
-        <!-- profile silhouette -->
-        <path d="M262 150c-58 0-100 46-100 104 0 30 10 54 28 72l-8 34c-2 8 4 14 12 14h22l4 34c2 14 14 22 28 20l30-4 10 56h86l-12-86c26-22 44-56 44-96 0-82-60-148-144-148Z" fill="#f3e7e6" opacity="0.14" />
-        <!-- hair flow -->
-        <path d="M250 120c90-20 170 40 176 130 6 86-34 150-20 230-60-36-84-110-70-182-30 60-26 120 2 182-76-46-104-146-80-220-40 40-56 96-46 150-50-56-60-150-8-226 12-18 28-44 46-64Z" fill="url(#h-hair)" />
-        <path d="M282 150c50 4 96 46 100 106 2 40-14 74-10 120" fill="none" stroke="#f3e7e6" stroke-width="3" stroke-linecap="round" opacity="0.55" />
-        <path d="M262 170c34 18 56 56 52 104-2 30-16 60-10 96" fill="none" stroke="#f3e7e6" stroke-width="2.5" stroke-linecap="round" opacity="0.4" />
-        <path d="M240 200c22 26 26 60 16 92" fill="none" stroke="#f3e7e6" stroke-width="2" stroke-linecap="round" opacity="0.35" />
-        <!-- ivy sprig -->
-        <g transform="translate(96 380)">
-          <path d="M0 120C30 80 60 40 110 0" fill="none" stroke="#c99bb8" stroke-width="3" stroke-linecap="round" />
-          <path d="M30 82c-18-4-28-18-26-34 18 2 28 16 26 34Z" fill="#c99bb8" />
-          <path d="M52 56c4-18 20-28 36-24-4 18-20 28-36 24Z" fill="#e1c0d4" />
-          <path d="M72 32c-14-10-16-26-8-38 14 10 16 26 8 38Z" fill="#c99bb8" />
-        </g>
-        <!-- scissors -->
-        <g transform="translate(360 420) rotate(-30)" fill="none" stroke="url(#h-hair2)" stroke-width="5" stroke-linecap="round">
-          <circle cx="0" cy="0" r="14" />
-          <circle cx="0" cy="40" r="14" />
-          <path d="M12 8 72 34M12 32 72 6" />
-        </g>
-      </svg>
-      <p class="absolute -bottom-2 left-2 rounded-full bg-porcelain-50 px-4 py-2 text-sm font-semibold text-plum-800 shadow-lg shadow-plum-900/10 sm:left-6">
-        Est. 2026 · totally fictional
-      </p>
-    </div>
+  <div class="hero-art">
+    <svg viewBox="0 0 640 820" width="640" height="820" role="img" aria-labelledby="hero-art-title">
+      <title id="hero-art-title">Abstract illustration of flowing hair in plum, blush and rose tones</title>
+      <defs>
+        <linearGradient id="panel" x1="0" y1="0" x2="0.2" y2="1">
+          <stop offset="0" stop-color="#4a2340"></stop>
+          <stop offset="1" stop-color="#2a1426"></stop>
+        </linearGradient>
+      </defs>
+      <rect x="118" y="16" width="500" height="788" rx="230" fill="url(#panel)"></rect>
+      <circle cx="500" cy="118" r="42" fill="#e8b4bc"></circle>
+      <g class="hair-sway">
+        <path class="strand" pathLength="1" style="--d:0.05s" stroke="#722b42" stroke-width="18" d="M230 36C300 150 175 250 230 390C285 530 185 650 255 800"></path>
+        <path class="strand" pathLength="1" style="--d:0.18s" stroke="#8c3550" stroke-width="12" d="M275 22C360 145 230 270 300 415C365 555 255 670 325 805"></path>
+        <path class="strand" pathLength="1" style="--d:0.32s" stroke="#c76a80" stroke-width="9" d="M325 40C415 165 295 295 365 445C430 585 330 690 400 800"></path>
+        <path class="strand" pathLength="1" style="--d:0.46s" stroke="#e8b4bc" stroke-width="7" d="M380 28C475 160 365 310 440 465C505 610 420 705 475 792"></path>
+        <path class="strand" pathLength="1" style="--d:0.58s" stroke="#f3e7e6" stroke-width="4" d="M300 78C365 190 270 315 325 455C375 575 300 675 345 770"></path>
+        <path class="strand" pathLength="1" style="--d:0.7s" stroke="#d4b072" stroke-width="3" d="M210 110C265 230 190 350 245 490C290 610 225 700 270 785"></path>
+        <path class="strand" pathLength="1" style="--d:0.84s" stroke="#faf3f2" stroke-width="2.5" d="M420 90C490 200 410 330 470 480C520 610 455 700 500 775"></path>
+      </g>
+      <g transform="translate(150 600)">
+        <path d="M8 150C40 100 78 48 130 8" fill="none" stroke="#c99bb8" stroke-width="3" stroke-linecap="round"></path>
+        <path d="M46 104c-16-4-28-18-24-34 16 2 28 16 24 34Z" fill="#c99bb8"></path>
+        <path d="M74 68c6-16 22-26 36-20-6 16-22 26-36 20Z" fill="#e1c0d4"></path>
+        <path d="M102 34c-12-10-16-26-6-38 14 10 18 26 6 38Z" fill="#c99bb8"></path>
+      </g>
+    </svg>
   </div>
 </section>

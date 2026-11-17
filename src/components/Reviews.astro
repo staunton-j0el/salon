@@ -1,27 +1,42 @@
 ---
 import { site } from '../site.config';
+const [lead, ...rest] = site.reviews;
 ---
-<section id="reviews" class="section bg-blush-100" aria-labelledby="reviews-title">
-  <div class="container-x">
-    <p class="eyebrow">Kind words</p>
-    <h2 id="reviews-title" class="section-title">What clients say</h2>
-    <p class="mt-4 inline-flex rounded-full bg-white px-4 py-2 text-sm font-semibold text-blush-700">Sample reviews (demo)</p>
-    <ul class="mt-10 grid gap-6 md:grid-cols-3" role="list">
-      {site.reviews.map((r) => (
-        <li>
-          <figure class="flex h-full flex-col rounded-3xl bg-porcelain-50 p-7 shadow-sm shadow-plum-900/5">
-            <p class="text-blush-600" role="img" aria-label="5 out of 5 stars (sample)">
+<section id="reviews" class="band band-blush" aria-labelledby="reviews-title">
+  <div class="container-x review-layout">
+    <div class="review-intro">
+      <p class="kind-words">Kind words</p>
+      <h2 id="reviews-title" class="display">What clients say</h2>
+      <p class="review-flag">Sample reviews (demo)</p>
+    </div>
+    <figure class="pull">
+      <p class="stars" role="img" aria-label="5 out of 5 stars (sample)">
+        <span aria-hidden="true">★★★★★</span>
+      </p>
+      <span class="qmark" aria-hidden="true">“</span>
+      <blockquote>
+        <p>“{lead.quote}”</p>
+      </blockquote>
+      <figcaption>
+        <span class="who">{lead.name}</span>{' · '}{lead.service}{' · '}<em>sample</em>
+      </figcaption>
+    </figure>
+    <div class="pull-side">
+      {
+        rest.map((review) => (
+          <figure class="aside-quote">
+            <p class="stars" role="img" aria-label="5 out of 5 stars (sample)">
               <span aria-hidden="true">★★★★★</span>
             </p>
-            <blockquote class="mt-4 flex-1 font-serif text-xl leading-snug text-plum-800">
-              <p>“{r.quote}”</p>
+            <blockquote>
+              <p>“{review.quote}”</p>
             </blockquote>
-            <figcaption class="mt-6 text-sm text-muted">
-              <span class="font-semibold text-ink">{r.name}</span> · {r.service} · <em>sample</em>
+            <figcaption>
+              <span class="who">{review.name}</span>{' · '}{review.service}{' · '}<em>sample</em>
             </figcaption>
           </figure>
-        </li>
-      ))}
-    </ul>
+        ))
+      }
+    </div>
   </div>
 </section>

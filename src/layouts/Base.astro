@@ -61,5 +61,15 @@ const ogImage = new URL('/og-image.png', site.siteUrl).href;
       <slot />
     </main>
     <Footer />
+    <div class="cursor-scissors" aria-hidden="true" hidden>
+      <svg viewBox="0 0 72 40" fill="none">
+        <circle cx="15" cy="11" r="8" stroke="currentColor" stroke-width="3"></circle>
+        <circle cx="15" cy="29" r="8" stroke="currentColor" stroke-width="3"></circle>
+        <path d="M22 14.5 66 23.5M22 25.5 66 16.5" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path>
+      </svg>
+    </div>
+    <script>
+      import '../scripts/motion.ts';
+    </script>
   </body>
 </html>

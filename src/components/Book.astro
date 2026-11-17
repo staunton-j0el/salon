@@ -1,17 +1,17 @@
 ---
 import { site } from '../site.config';
 ---
-<section id="book" class="section" aria-labelledby="book-title">
-  <div class="container-x grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-    <div>
-      <p class="eyebrow">Book</p>
-      <h2 id="book-title" class="section-title">Request an appointment</h2>
-      <p class="mt-4 text-lg leading-relaxed text-muted">
+<section id="book" class="band" aria-labelledby="book-title">
+  <div class="container-x book-grid">
+    <div class="book-copy">
+      <p class="book-giant">Book</p>
+      <h2 id="book-title" class="display">Request an <em>appointment</em></h2>
+      <p class="book-lede">
         Tell us what you're after and when suits, and we'll confirm a time. New clients welcome.
       </p>
-      <div class="mt-8 rounded-3xl border border-dashed border-blush-500 bg-blush-100/60 p-6">
-        <h3 class="text-xl font-semibold">How a real salon site would do this</h3>
-        <p class="mt-3 leading-relaxed text-muted">
+      <div class="real-note">
+        <h3>How a real salon site would do this</h3>
+        <p>
           On a live site, the "Book now" buttons would link straight to the salon's online booking system — for example
           Fresha, Timely, Kitomba or Square Appointments — so clients can pick a stylist and time slot, pay a deposit and
           get SMS reminders. This form shows a simple enquiry alternative.
@@ -19,14 +19,14 @@ import { site } from '../site.config';
       </div>
     </div>
 
-    <form id="booking-form" class="rounded-3xl border border-plum-100 bg-white p-6 shadow-sm shadow-plum-900/5 sm:p-8" novalidate>
+    <form id="booking-form" class="book-form" novalidate>
       <div class="grid gap-5 sm:grid-cols-2">
         <div class="sm:col-span-2">
-          <label for="bf-name" class="field-label">Name <span class="text-blush-600" aria-hidden="true">*</span></label>
+          <label for="bf-name" class="field-label">Name <span class="text-blush-700" aria-hidden="true">*</span></label>
           <input id="bf-name" name="name" type="text" autocomplete="name" required class="field" />
         </div>
         <div>
-          <label for="bf-email" class="field-label">Email <span class="text-blush-600" aria-hidden="true">*</span></label>
+          <label for="bf-email" class="field-label">Email <span class="text-blush-700" aria-hidden="true">*</span></label>
           <input id="bf-email" name="email" type="email" autocomplete="email" required class="field" />
         </div>
         <div>
@@ -34,27 +34,31 @@ import { site } from '../site.config';
           <input id="bf-phone" name="phone" type="tel" autocomplete="tel" class="field" />
         </div>
         <div class="sm:col-span-2">
-          <label for="bf-service" class="field-label">Service <span class="text-blush-600" aria-hidden="true">*</span></label>
-          <select id="bf-service" name="service" required class="field appearance-auto">
+          <label for="bf-service" class="field-label">Service <span class="text-blush-700" aria-hidden="true">*</span></label>
+          <select id="bf-service" name="service" required class="field">
             <option value="">Choose a service…</option>
-            {site.services.map((g) => (
-              <optgroup label={g.group}>
-                {g.items.map((i) => <option value={i.name}>{i.name} ({i.price})</option>)}
-              </optgroup>
-            ))}
+            {
+              site.services.map((group) => (
+                <optgroup label={group.group}>
+                  {group.items.map((item) => (
+                    <option value={item.name}>{item.name} ({item.price})</option>
+                  ))}
+                </optgroup>
+              ))
+            }
             <option value="Not sure">Not sure — I'd like a consultation</option>
           </select>
         </div>
         <div>
           <label for="bf-day" class="field-label">Preferred day</label>
-          <select id="bf-day" name="day" class="field appearance-auto">
+          <select id="bf-day" name="day" class="field">
             <option value="">Any day</option>
-            {site.hours.filter((h) => h.open).map((h) => <option value={h.day}>{h.day}</option>)}
+            {site.hours.filter((day) => day.open).map((day) => <option value={day.day}>{day.day}</option>)}
           </select>
         </div>
         <div>
           <label for="bf-time" class="field-label">Preferred time</label>
-          <select id="bf-time" name="time" class="field appearance-auto">
+          <select id="bf-time" name="time" class="field">
             <option value="">Any time</option>
             <option>Morning</option>
             <option>Midday</option>
@@ -67,7 +71,7 @@ import { site } from '../site.config';
           <textarea id="bf-notes" name="notes" rows="4" class="field" placeholder="Hair length, colour history, inspiration…"></textarea>
         </div>
       </div>
-      <p class="mt-4 text-sm text-muted"><span class="text-blush-600" aria-hidden="true">*</span> Required</p>
+      <p class="mt-4 text-sm text-muted"><span class="text-blush-700" aria-hidden="true">*</span> Required</p>
       <button type="submit" class="btn btn-primary mt-6 w-full sm:w-auto">Send booking request</button>
       <div id="booking-status" role="status" aria-live="polite" class="mt-5 empty:hidden"></div>
     </form>
@@ -78,17 +82,17 @@ import { site } from '../site.config';
   // Demo only: never sends anything anywhere.
   const form = document.getElementById('booking-form') as HTMLFormElement | null;
   const status = document.getElementById('booking-status');
-  form?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    if (!status) return;
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!status || !form) return;
     if (!form.checkValidity()) {
       const firstInvalid = form.querySelector<HTMLElement>(':invalid');
-      status.className = 'mt-5 rounded-2xl border border-blush-500 bg-blush-100 p-4 font-medium text-blush-700';
+      status.className = 'mt-5 border border-blush-600 bg-blush-100 p-4 font-medium text-blush-800';
       status.textContent = 'Please fill in your name, a valid email and a service.';
       firstInvalid?.focus();
       return;
     }
-    status.className = 'mt-5 rounded-2xl border border-plum-300 bg-plum-50 p-4 font-medium text-plum-800';
+    status.className = 'mt-5 border border-plum-300 bg-plum-50 p-4 font-medium text-plum-800';
     status.textContent =
       "This is a demo — no booking was sent. On a real site this would go to the salon's booking system.";
   });

@@ -1,32 +1,42 @@
 ---
 import { site } from '../site.config';
+import Snip from './Snip.astro';
+
+/** Plate number for a gallery tile, from 01. */
+function plate(index: number): string {
+  return String(index + 1).padStart(2, '0');
+}
 ---
-<section id="gallery" class="section" aria-labelledby="gallery-title">
+<section id="gallery" class="band" aria-labelledby="gallery-title">
   <div class="container-x">
-    <p class="eyebrow">Gallery</p>
-    <h2 id="gallery-title" class="section-title">A little inspiration</h2>
-    <p class="mt-4 max-w-2xl text-lg text-muted">
-      Original illustrations standing in for real work — on a live site, this is where the salon's own photos would go.
-    </p>
-    <ul class="mt-12 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4" role="list">
-      {site.gallery.map((img) => (
-        <li>
-          <figure class="group">
-            <div class="aspect-[4/5] overflow-hidden rounded-2xl bg-porcelain-200">
-              <img
-                src={img.src}
-                alt={img.alt}
-                width="400"
-                height="500"
-                loading="lazy"
-                decoding="async"
-                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-              />
-            </div>
-            <figcaption class="mt-2.5 text-sm font-medium text-plum-800">{img.caption}</figcaption>
-          </figure>
-        </li>
-      ))}
+    <header class="gallery-head">
+      <p class="gallery-kicker">Gallery</p>
+      <h2 id="gallery-title" class="display">A little <Snip word="inspiration" italic /></h2>
+      <p class="gallery-lede">
+        Original illustrations standing in for real work — on a live site, this is where the salon's own photos would go.
+      </p>
+    </header>
+    <ul class="mag" role="list">
+      {
+        site.gallery.map((img, index) => (
+          <li class={`mag-item mag-${index}`}>
+            <figure>
+              <div class="frame">
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  width="400"
+                  height="500"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="mag-no" aria-hidden="true">{plate(index)}</span>
+              </div>
+              <figcaption>{img.caption}</figcaption>
+            </figure>
+          </li>
+        ))
+      }
     </ul>
   </div>
 </section>
