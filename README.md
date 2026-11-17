@@ -13,7 +13,7 @@
 - No external CDNs, no trackers; a few lines of vanilla JS (mobile menu, demo form)
 
 Business details (name, hours, services, team, FAQ, site URL) live in **`src/site.config.ts`**.
-Replace `siteUrl` (`https://example.com`) with the real deployed URL — canonical, OG, sitemap and robots.txt all use it.
+Replace `siteUrl` (`https://ironbark-ivy-salon-demo.onrender.com`) with the real deployed URL — canonical, OG, sitemap and robots.txt all use it.
 
 ## Commands
 

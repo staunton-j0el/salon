@@ -3,7 +3,7 @@ export const site = {
   name: 'Ironbark & Ivy Hair Studio',
   shortName: 'Ironbark & Ivy',
   // Placeholder — replace with the real deployed URL.
-  siteUrl: 'https://example.com',
+  siteUrl: 'https://ironbark-ivy-salon-demo.onrender.com',
   title: 'Ironbark & Ivy Hair Studio — Demo salon website',
   description:
     'A fictional hair salon demo website by JS Web Services: cuts, colour, styling and treatments with example prices, gallery, team and online booking concept. Not a real business.',
