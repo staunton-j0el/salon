@@ -4,13 +4,13 @@ const { class: cls = '', light = false } = Astro.props;
 ---
 <span class:list={['inline-flex items-center gap-2.5', cls]}>
   <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true" class="shrink-0">
-    <circle cx="32" cy="32" r="31" fill={light ? '#faf5ec' : '#2f4a3a'} />
-    <path d="M32 50V22" stroke={light ? '#2f4a3a' : '#faf5ec'} stroke-width="3" stroke-linecap="round" />
-    <path d="M32 34c-8 0-13-6-13-13 8 0 13 6 13 13Z" fill="#e9b8a6" />
-    <path d="M32 28c7 0 12-5 12-12-7 0-12 5-12 12Z" fill={light ? '#4c6b56' : '#8fac97'} />
-    <path d="M32 42c6 0 10-4 10-10-6 0-10 4-10 10Z" fill="#c0674a" />
+    <circle cx="32" cy="32" r="31" fill={light ? '#faf3f2' : '#4a2340'} />
+    <path d="M32 50V22" stroke={light ? '#4a2340' : '#faf3f2'} stroke-width="3" stroke-linecap="round" />
+    <path d="M32 34c-8 0-13-6-13-13 8 0 13 6 13 13Z" fill="#e8b4bc" />
+    <path d="M32 28c7 0 12-5 12-12-7 0-12 5-12 12Z" fill={light ? '#8c5580' : '#c99bb8'} />
+    <path d="M32 42c6 0 10-4 10-10-6 0-10 4-10 10Z" fill="#c76a80" />
   </svg>
-  <span class:list={['font-serif text-xl leading-none font-semibold tracking-tight', light ? 'text-cream-50' : 'text-euc-800']}>
-    Ironbark <span class:list={[light ? 'text-blush-300' : 'text-terra-600']}>&amp;</span> Ivy
+  <span class:list={['font-serif text-xl leading-none font-semibold tracking-tight', light ? 'text-porcelain-50' : 'text-plum-800']}>
+    Ironbark <span class:list={[light ? 'text-blush-300' : 'text-blush-600']}>&amp;</span> Ivy
   </span>
 </span>

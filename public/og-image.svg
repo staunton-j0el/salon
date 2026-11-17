@@ -1,28 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
     <linearGradient id="hair" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#8a3b25"/><stop offset=".55" stop-color="#c0674a"/><stop offset="1" stop-color="#e9b8a6"/>
+      <stop offset="0" stop-color="#8c3550"/><stop offset=".55" stop-color="#c76a80"/><stop offset="1" stop-color="#e8b4bc"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="#faf5ec"/>
-  <circle cx="1060" cy="80" r="260" fill="#f1d0c4" opacity=".6"/>
-  <rect x="760" y="60" width="360" height="510" rx="180" fill="#2f4a3a"/>
+  <rect width="1200" height="630" fill="#faf3f2"/>
+  <circle cx="1060" cy="80" r="260" fill="#f4dfe1" opacity=".6"/>
+  <rect x="760" y="60" width="360" height="510" rx="180" fill="#4a2340"/>
   <path d="M930 150c80-18 150 36 156 116 5 76-30 132-18 204-52-32-74-98-62-162-26 54-22 108 2 162-66-40-92-130-70-196-36 36-50 86-40 134-44-50-54-134-6-202 10-16 24-38 38-56Z" fill="url(#hair)"/>
   <g transform="translate(800 440)">
-    <path d="M0 100C26 66 52 34 96 0" fill="none" stroke="#8fac97" stroke-width="4" stroke-linecap="round"/>
-    <path d="M26 68c-16-4-24-16-22-30 16 2 24 14 22 30Z" fill="#8fac97"/>
-    <path d="M46 46c4-16 18-24 32-20-4 16-18 24-32 20Z" fill="#a9c2ae"/>
+    <path d="M0 100C26 66 52 34 96 0" fill="none" stroke="#c99bb8" stroke-width="4" stroke-linecap="round"/>
+    <path d="M26 68c-16-4-24-16-22-30 16 2 24 14 22 30Z" fill="#c99bb8"/>
+    <path d="M46 46c4-16 18-24 32-20-4 16-18 24-32 20Z" fill="#e1c0d4"/>
   </g>
   <g transform="translate(80 110)">
-    <circle cx="28" cy="28" r="28" fill="#2f4a3a"/>
-    <path d="M28 46V20" stroke="#faf5ec" stroke-width="3" stroke-linecap="round"/>
-    <path d="M28 30c-7 0-11-5-11-11 7 0 11 5 11 11Z" fill="#e9b8a6"/>
-    <path d="M28 25c6 0 10-4 10-10-6 0-10 4-10 10Z" fill="#8fac97"/>
-    <text x="74" y="38" font-family="Georgia, 'DejaVu Serif', serif" font-size="30" font-weight="700" fill="#24392d">Ironbark <tspan fill="#a3492f">&amp;</tspan> Ivy</text>
+    <circle cx="28" cy="28" r="28" fill="#4a2340"/>
+    <path d="M28 46V20" stroke="#faf3f2" stroke-width="3" stroke-linecap="round"/>
+    <path d="M28 30c-7 0-11-5-11-11 7 0 11 5 11 11Z" fill="#e8b4bc"/>
+    <path d="M28 25c6 0 10-4 10-10-6 0-10 4-10 10Z" fill="#c99bb8"/>
+    <text x="74" y="38" font-family="Georgia, 'DejaVu Serif', serif" font-size="30" font-weight="700" fill="#3b1f35">Ironbark <tspan fill="#a8445f">&amp;</tspan> Ivy</text>
   </g>
-  <text x="80" y="270" font-family="Georgia, 'DejaVu Serif', serif" font-size="74" font-weight="700" fill="#24392d">Hair that feels</text>
-  <text x="80" y="356" font-family="Georgia, 'DejaVu Serif', serif" font-size="74" font-style="italic" fill="#a3492f">like you.</text>
-  <text x="80" y="420" font-family="system-ui, 'DejaVu Sans', Arial, sans-serif" font-size="28" fill="#4f5a53">Cuts · Colour · Styling · Treatments</text>
-  <rect x="80" y="476" width="640" height="56" rx="28" fill="#24392d"/>
-  <text x="400" y="511" text-anchor="middle" font-family="system-ui, 'DejaVu Sans', Arial, sans-serif" font-size="19" font-weight="700" fill="#faf5ec">DEMO — fictional salon · concept by JS Web Services</text>
+  <text x="80" y="270" font-family="Georgia, 'DejaVu Serif', serif" font-size="74" font-weight="700" fill="#3b1f35">Hair that feels</text>
+  <text x="80" y="356" font-family="Georgia, 'DejaVu Serif', serif" font-size="74" font-style="italic" fill="#a8445f">like you.</text>
+  <text x="80" y="420" font-family="system-ui, 'DejaVu Sans', Arial, sans-serif" font-size="28" fill="#5e4a58">Cuts · Colour · Styling · Treatments</text>
+  <rect x="80" y="476" width="640" height="56" rx="28" fill="#3b1f35"/>
+  <text x="400" y="511" text-anchor="middle" font-family="system-ui, 'DejaVu Sans', Arial, sans-serif" font-size="19" font-weight="700" fill="#faf3f2">DEMO — fictional salon · concept by JS Web Services</text>
 </svg>
