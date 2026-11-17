@@ -1,0 +1,40 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import Gallery from '../components/Gallery.astro';
+import Team from '../components/Team.astro';
+import Reviews from '../components/Reviews.astro';
+import Hours from '../components/Hours.astro';
+import Book from '../components/Book.astro';
+import Faq from '../components/Faq.astro';
+import { site } from '../site.config';
+
+const dayMap: Record<string, string> = {
+  Monday: 'Mo', Tuesday: 'Tu', Wednesday: 'We', Thursday: 'Th', Friday: 'Fr', Saturday: 'Sa', Sunday: 'Su',
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HairSalon',
+  name: site.name,
+  description:
+    'Ironbark & Ivy Hair Studio is a fictional demo business — a portfolio website concept by JS Web Services. Not a real salon; no real address, phone or bookings.',
+  url: site.siteUrl,
+  image: new URL('/og-image.png', site.siteUrl).href,
+  logo: new URL('/favicon.svg', site.siteUrl).href,
+  areaServed: site.areaServed,
+  priceRange: '$$',
+  openingHours: site.hours.filter((h) => h.open).map((h) => `${dayMap[h.day]} ${h.open}-${h.close}`),
+};
+---
+<Base jsonLd={jsonLd}>
+  <Hero />
+  <Services />
+  <Gallery />
+  <Team />
+  <Reviews />
+  <Hours />
+  <Book />
+  <Faq />
+</Base>

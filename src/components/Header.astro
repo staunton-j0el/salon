@@ -1,0 +1,76 @@
+---
+import { site } from '../site.config';
+import Logo from './Logo.astro';
+---
+<header class="border-b border-euc-100/80 bg-cream-100/95 backdrop-blur supports-[backdrop-filter]:bg-cream-100/85">
+  <div class="container-x flex h-16 items-center justify-between gap-4 sm:h-[4.5rem]">
+    <a href="/" class="flex min-h-11 items-center rounded-md" aria-label={`${site.name} — home`}>
+      <Logo />
+    </a>
+
+    <nav aria-label="Main" class="hidden lg:block">
+      <ul class="flex items-center gap-1">
+        {site.nav.map((item) => (
+          <li>
+            <a href={item.href} class="inline-flex min-h-11 items-center rounded-full px-4 font-medium text-euc-800 transition-colors hover:bg-euc-50 hover:text-terra-600">
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a href="/#book" class="btn btn-primary hidden px-5 sm:inline-flex">Book now</a>
+
+      <details class="mobile-menu relative lg:hidden">
+        <summary
+          class="inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-full border-2 border-euc-700 px-4 font-semibold text-euc-800"
+          aria-label="Open menu"
+        >
+          <svg class="icon-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+          <svg class="icon-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+          <span>Menu</span>
+        </summary>
+        <nav
+          aria-label="Mobile"
+          class="absolute right-0 mt-3 w-[min(18rem,calc(100vw-2.5rem))] rounded-2xl border border-euc-100 bg-cream-50 p-3 shadow-xl shadow-euc-900/10"
+        >
+          <ul class="flex flex-col">
+            {site.nav.map((item) => (
+              <li>
+                <a href={item.href} class="flex min-h-12 items-center rounded-xl px-4 text-lg font-medium text-euc-800 hover:bg-euc-50">
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a href="/#book" class="btn btn-primary mt-2 w-full">Book now</a>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+
+<style>
+  .mobile-menu .icon-close { display: none; }
+  .mobile-menu[open] .icon-close { display: block; }
+  .mobile-menu[open] .icon-open { display: none; }
+</style>
+
+<script>
+  // Close the mobile menu after choosing a link, or on Escape / outside click.
+  const menu = document.querySelector<HTMLDetailsElement>('details.mobile-menu');
+  if (menu) {
+    const summary = menu.querySelector('summary');
+    const sync = () => summary?.setAttribute('aria-label', menu.open ? 'Close menu' : 'Open menu');
+    menu.addEventListener('toggle', sync);
+    menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => (menu.open = false)));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menu.open) { menu.open = false; summary?.focus(); }
+    });
+    document.addEventListener('click', (e) => {
+      if (menu.open && !menu.contains(e.target as Node)) menu.open = false;
+    });
+  }
+</script>

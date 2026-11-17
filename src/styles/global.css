@@ -1,0 +1,85 @@
+@import '@fontsource-variable/fraunces/wght.css';
+@import '@fontsource-variable/fraunces/wght-italic.css';
+@import 'tailwindcss';
+
+@theme {
+  --font-serif: 'Fraunces Variable', Georgia, 'Times New Roman', serif;
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  --color-cream-50: #fdfaf4;
+  --color-cream-100: #faf5ec;
+  --color-cream-200: #f3e9d8;
+  --color-cream-300: #e8d8bd;
+
+  --color-euc-50: #eef3ee;
+  --color-euc-100: #d7e3d8;
+  --color-euc-300: #8fac97;
+  --color-euc-500: #4c6b56;
+  --color-euc-700: #2f4a3a;
+  --color-euc-800: #24392d;
+  --color-euc-900: #1a2a21;
+
+  --color-blush-100: #f8e6df;
+  --color-blush-200: #f1d0c4;
+  --color-blush-300: #e9b8a6;
+
+  --color-terra-500: #c0674a;
+  --color-terra-600: #a3492f;
+  --color-terra-700: #8a3b25;
+
+  --color-ink: #1f2a24;
+  --color-muted: #4f5a53;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-cream-100 text-ink font-sans antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3 {
+    @apply font-serif text-euc-800;
+    font-optical-sizing: auto;
+    text-wrap: balance;
+  }
+  p { text-wrap: pretty; }
+  :focus-visible {
+    outline: 3px solid var(--color-terra-600);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  ::selection { background: var(--color-blush-200); color: var(--color-ink); }
+  summary { cursor: pointer; list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+}
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-6xl px-5 sm:px-8; }
+  .btn {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-6 py-3 text-base font-semibold transition-colors duration-200;
+  }
+  .btn-primary { @apply bg-terra-600 text-white hover:bg-terra-700; }
+  .btn-dark { @apply bg-euc-800 text-cream-50 hover:bg-euc-900; }
+  .btn-ghost { @apply border-2 border-euc-700 text-euc-800 hover:bg-euc-700 hover:text-cream-50; }
+  .eyebrow { @apply text-sm font-semibold uppercase tracking-[0.14em] text-terra-600; }
+  .section { @apply py-20 sm:py-28; }
+  .section-title { @apply mt-3 text-4xl leading-tight font-semibold sm:text-5xl; }
+  .field-label { @apply mb-1.5 block text-sm font-semibold text-euc-800; }
+  .field {
+    @apply block min-h-12 w-full rounded-xl border border-euc-300 bg-white px-4 py-3 text-base text-ink placeholder:text-muted/80;
+  }
+  .field:focus-visible { outline-offset: 1px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

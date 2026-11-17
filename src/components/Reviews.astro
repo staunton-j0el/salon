@@ -1,0 +1,27 @@
+---
+import { site } from '../site.config';
+---
+<section id="reviews" class="section bg-blush-100" aria-labelledby="reviews-title">
+  <div class="container-x">
+    <p class="eyebrow">Kind words</p>
+    <h2 id="reviews-title" class="section-title">What clients say</h2>
+    <p class="mt-4 inline-flex rounded-full bg-white px-4 py-2 text-sm font-semibold text-terra-700">Sample reviews (demo)</p>
+    <ul class="mt-10 grid gap-6 md:grid-cols-3" role="list">
+      {site.reviews.map((r) => (
+        <li>
+          <figure class="flex h-full flex-col rounded-3xl bg-cream-50 p-7 shadow-sm shadow-euc-900/5">
+            <p class="text-terra-600" aria-label="5 out of 5 stars (sample)">
+              <span aria-hidden="true">★★★★★</span>
+            </p>
+            <blockquote class="mt-4 flex-1 font-serif text-xl leading-snug text-euc-800">
+              <p>“{r.quote}”</p>
+            </blockquote>
+            <figcaption class="mt-6 text-sm text-muted">
+              <span class="font-semibold text-ink">{r.name}</span> · {r.service} · <em>sample</em>
+            </figcaption>
+          </figure>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
